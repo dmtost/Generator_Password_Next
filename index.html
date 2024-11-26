@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Generator Password Next</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="container">
+        <h1 class="title">Generator Password</h1>
+        <div class="content">
+          <div class="config">
+            <form id="generator-pass">
+              <label for="passLen">Длина пароля</label>
+              <input
+                type="number"
+                name="passLen"
+                id="length-pass"
+                min="6"
+                max="18"
+                value="8"
+              />
+            </form>
+            <button class="config__btn-gen btn">Сгенерировать</button>
+            <button class="config__btn-copy btn">Скопировать</button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>
