@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Generator Password Next</title>
   </head>
+
   <body>
     <main class="main">
       <div class="container">
@@ -19,25 +20,34 @@
         <div class="content">
           <div class="config">
             <form id="generator-pass">
-              <label for="length-pass">Длина пароля</label>
-              <input
-                type="number"
-                name="passLen"
-                id="length-pass"
-                min="6"
-                max="18"
-                value="8"
-              />
+              <label for="length-pass"
+                >Длина пароля
+                <input
+                  type="number"
+                  name="passLen"
+                  id="length-pass"
+                  min="6"
+                  max="18"
+                  value="8"
+                />
+              </label>
+              <label for="allChars">
+                <input type="radio" name="selection" id="allChars" />
+                Все символы
+              </label>
+              <label for="onlyAplh">
+                <input type="radio" name="selection" id="onlyAplh" />
+                Алфавит и символы
+              </label>
+              <label for="onSymbols">
+                <input type="radio" name="selection" id="onSymbols" />
+                Цифры и символы
+              </label>
             </form>
             <button class="config__btn-gen btn">Сгенерировать</button>
             <button class="config__btn-copy btn">Скопировать</button>
           </div>
-          <div class="result">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-            officia quibusdam totam quam! Accusantium, labore voluptatem eveniet
-            corrupti delectus sit id sed, illum voluptatum excepturi, at tenetur
-            recusandae consequuntur doloremque.
-          </div>
+          <div class="result"></div>
         </div>
       </div>
     </main>

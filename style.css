@@ -27,6 +27,7 @@ body {
   display: flex;
   gap: 20px;
   justify-content: center;
+  width: 100%;
 }
 .config {
   display: flex;
@@ -37,10 +38,14 @@ body {
 .config,
 .result {
   padding: 50px;
-  /* width: 50%; */
+  width: 50%;
   border-radius: 5px;
   background-color: white;
-  border: 2px solid rgba(128, 128, 128, 0.10);
+  border: 2px solid rgba(128, 128, 128, 0.1);
+}
+#generator-pass {
+  display: flex;
+  flex-direction: column;
 }
 .result {
   max-width: 50%;
