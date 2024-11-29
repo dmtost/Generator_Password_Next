@@ -1,8 +1,8 @@
 //n элементы формы
 const form = document.forms.mainForm;
 const lengthPass = form.elements.passLen;
-const btnGeneratePass = form.elements["create-pass"];
-const rButton = form.elements.selection;
+// const btnGeneratePass = form.elements["create-pass"];
+// const rButton = form.elements.selection;
 
 const resultGeneratePass = document.querySelector(".result");
 const btnCopy = document.querySelector(".config__btn-copy");
@@ -47,10 +47,23 @@ function generatePass(lengthPass, chars) {
   return resultPass;
 }
 
-form.addEventListener("submit", (e) => {
-  resultGeneratePass.innerText = generatePass(
-    lengthPass.value,
-    checkBoxCheked()
-  );
+function generateMultyPass(e) {
+  const emptyArr = [];
+
+  for (let i = 0; i < 10; i++) {
+    emptyArr.push(generatePass(lengthPass.value, checkBoxCheked()));
+  }
+  resultGeneratePass.innerHTML = "";
+
+  for (const item of emptyArr) {
+    const passItem = document.createElement("span");
+    passItem.classList.add("pass-item");
+
+    passItem.textContent = `${item}`;
+    resultGeneratePass.append(passItem);
+  }
+
   e.preventDefault();
-});
+}
+
+form.addEventListener("submit", generateMultyPass);
