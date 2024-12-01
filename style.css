@@ -8,7 +8,17 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  background-color: #f4f5fa;
+  background: #de6262; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffb88c,
+    #de6262
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffb88c,
+    #de6262
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .main {
   margin: 0 auto;
@@ -32,7 +42,7 @@ body {
 .config {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  /* gap: 10px; */
   text-align: center;
 }
 .config,
@@ -45,12 +55,14 @@ body {
 }
 #generator-pass {
   display: flex;
+  gap: 10px;
   flex-direction: column;
 }
 .result {
   display: flex;
+  align-content: center;
   gap: 10px;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   max-width: 50%;
   background-color: white;
@@ -75,18 +87,26 @@ body {
 }
 
 .config__btn-gen {
+  margin: 0 auto;
+  max-width: 250px;
   background-color: blueviolet;
-  color: white;
-}
-.config__btn-copy {
-  background-color: rgb(81, 193, 0);
   color: white;
 }
 
 .pass-item {
   border-radius: 5px;
   padding: 5px;
-  background-color: chocolate;
-  /* height: fit-content; */
+  background: #7474bf; /* fallback for old browsers */
+
+  background: linear-gradient(
+    to right,
+    #348ac798,
+    #7474bf7d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   align-content: center;
-  }
+}
+
+.pass-item:hover {
+  cursor: pointer;
+}

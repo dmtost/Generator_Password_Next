@@ -4,8 +4,8 @@ const lengthPass = form.elements.passLen;
 // const btnGeneratePass = form.elements["create-pass"];
 // const rButton = form.elements.selection;
 
-const resultGeneratePass = document.querySelector(".result");
-const btnCopy = document.querySelector(".config__btn-copy");
+const resultGeneratesPass = document.querySelector(".result");
+// const btnCopy = document.querySelector(".config__btn-copy");
 
 function checkBoxCheked() {
   const passwordType = document.querySelector(
@@ -53,17 +53,26 @@ function generateMultyPass(e) {
   for (let i = 0; i < 10; i++) {
     emptyArr.push(generatePass(lengthPass.value, checkBoxCheked()));
   }
-  resultGeneratePass.innerHTML = "";
+  resultGeneratesPass.innerHTML = "";
 
   for (const item of emptyArr) {
     const passItem = document.createElement("span");
     passItem.classList.add("pass-item");
 
     passItem.textContent = `${item}`;
-    resultGeneratePass.append(passItem);
+    resultGeneratesPass.append(passItem);
   }
 
   e.preventDefault();
 }
+
+// function copyPassrowd() {}
+
+resultGeneratesPass.addEventListener("click", (e) => {
+  if (e.target.tagName == "SPAN") {
+    navigator.clipboard.writeText(e.target.textContent);
+    alert("Пароль скопирован");
+  }
+});
 
 form.addEventListener("submit", generateMultyPass);
