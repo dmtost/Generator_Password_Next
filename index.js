@@ -3,7 +3,7 @@ const form = document.forms.mainForm;
 const lengthPass = form.elements.passLen;
 // const btnGeneratePass = form.elements["create-pass"];
 // const rButton = form.elements.selection;
-
+const className = "copy";
 const resultGeneratesPass = document.querySelector(".result");
 // const btnCopy = document.querySelector(".config__btn-copy");
 
@@ -66,13 +66,24 @@ function generateMultyPass(e) {
   e.preventDefault();
 }
 
-// function copyPassrowd() {}
+function copyPasswd(e) {
+  // const target = e.target;
 
-resultGeneratesPass.addEventListener("click", (e) => {
-  if (e.target.tagName == "SPAN") {
-    navigator.clipboard.writeText(e.target.textContent);
-    alert("Пароль скопирован");
+  const pass = e.target.closest(".pass-item");
+  let comeText = "";
+
+  if (pass) {
+    const activeItem = e.currentTarget.querySelector(`.${className}`);
+    comeText = pass.textContent;
+    pass.textContent = "Скопировано";
+    if (activeItem) {
+      activeItem.classList.remove(classNa`me);
+      activeItem.textContent = comeText;
+    }
+    navigator.clipboard.writeText(comeText);
+    pass.classList.add(className);
   }
-});
+}
 
+resultGeneratesPass.addEventListener("click", copyPasswd);
 form.addEventListener("submit", generateMultyPass);
